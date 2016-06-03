@@ -5,19 +5,19 @@ function peaks(data) {
         prev = 0,
         next = 0,
         offset = 0;
-	// going through all elements (excluding the boder peaks)
+    // going through all elements (excluding the border peaks)
     for (var i = 1; i < data.length - 1; i++) {
         offset = 0;
-		// storing the previous value
+	// storing the previous value
         prev = data[i - 1];
-		// finding the end of a pleateau of values
+	// finding the end of a pleateau of values
         while (data[i] == data[i + 1]) {
             i++;
             offset++;
         }
-		// storing the next value
+	// storing the next value
         next = data[i + 1];
-		// the point is a peak (bigger than previous and next, store it)
+	// the point is a peak (bigger than previous and next, store it)
         if (data[i] > prev && data[i] > next) {
             pos.push(i - offset);
             peaks.push(data[i]);
