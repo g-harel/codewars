@@ -23,9 +23,9 @@ function snail(array) {
 	while(min <= max) {
 
 		/* high peak :	reduce maximum
-						set direction to downwards
-						append the current array in reverse order to result
-						decrement "current" */
+				set direction to downwards
+				append the current array in reverse order to result
+				decrement "current" */
 		if (current == max && direction) {
 			max--;
 			direction = false;
@@ -33,9 +33,9 @@ function snail(array) {
 			current--;
 
 		/* low peak :	increment minimum
-						set direction to upwards
-						append the current array to result
-						increment "current" */
+				set direction to upwards
+				append the current array to result
+				increment "current" */
 		} else if (current == min && !direction) {
 			min++;
 			direction = true;
@@ -43,15 +43,15 @@ function snail(array) {
 			current++;
 
 		/* ascending :	append the last element of current array to result
-						remove the last element of current array
-						increment "current" */
+				remove the last element of current array
+				increment "current" */
 		} else if (direction) {
 			result.push(array[current-1].pop());
 			current++;
 
 		/* descending :	append the first element of current array to result
-						remove the first element of current array
-						increment "current" */
+				remove the first element of current array
+				increment "current" */
 		} else {
 			result.push(array[current-1][0]);
 			array[current-1] = array[current-1].slice(1);
